@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CakeNGo • Sweetness That Travels</title>
+  <meta name="description" content="CakeNGo — Cake in a Can. Fresh cakes, sealed for freshness. Delivery across all 5 NYC boroughs. Shelf life 8–12 weeks." />
+
+  <!-- Fonts
+       Cherry Bomb One is from Google Fonts.
+       Nickainley is NOT on Google Fonts. We declare it via @font-face so you can drop
+       assets/fonts/Nickainley.woff2 later. Until then it will fall back to cursive. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Nickainley';
+      src: local('Nickainley'), url('assets/fonts/Nickainley.woff2') format('woff2');
+      font-display: swap;
+    }
+  </style>
+
+  <style>
+    :root{ --bg:#0f0f10; --card:#17171a; --muted:#9aa0a6; --accent:#ff3b5c; --cream:#fff3f6; }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:var(--bg); color:#fff; font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:24px}
+    header{position:sticky; top:0; backdrop-filter:saturate(140%) blur(8px); background:rgba(15,15,16,.8); border-bottom:1px solid #232327; z-index:10}
+    .nav{display:flex; align-items:center; gap:16px; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px}
+    .logo{width:42px; height:42px; border-radius:12px; background:linear-gradient(180deg,#ff6a88,#ff3b5c); box-shadow:0 8px 24px rgba(255,59,92,.35); position:relative; overflow:hidden}
+    .logo::after{content:""; position:absolute; inset:6px 8px auto auto; width:60%; height:8px; border-radius:6px; background:#fff; opacity:.85; transform:rotate(-18deg)} /* can lid */
+    .wordmark{font-size:28px; letter-spacing:.5px; display:flex; align-items:center; gap:2px}
+    .wordmark .cake{font-family:"Cherry Bomb One", cursive}
+    .wordmark .n{font-family:"Nickainley", cursive; margin:0 1px}
+    .wordmark .go{font-family:"Cherry Bomb One", cursive}
+    .tag{color:var(--muted); margin-left:auto; font-size:14px}
+
+    .hero{display:grid; grid-template-columns:1.25fr .75fr; gap:24px; padding:40px 0}
+    .hero h1{font-family:"Cherry Bomb One", cursive; font-size:56px; line-height:1; margin:0 0 14px}
+    .hero p{color:#d7d9dd; font-size:18px; margin:0 0 18px}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{background:#fff; color:#000; padding:12px 16px; border-radius:14px; font-weight:800; display:inline-flex; align-items:center; gap:10px}
+    .btn--ghost{background:#232327; color:#fff}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(255,59,92,.15); color:#ffd9e1; font-weight:700; font-size:13px}
+    .can-card{background:var(--card); border:1px solid #232327; border-radius:20px; padding:16px}
+    .grid{display:grid; gap:16px}
+    .grid.flavors{grid-template-columns:repeat(1,minmax(0,1fr))}
+    @media(min-width:640px){.grid.flavors{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(min-width:900px){.grid.flavors{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    .thumb{aspect-ratio:3/4; border-radius:14px; background:#2a2a2f; display:grid; place-items:center; color:#c9cbd1; font-weight:800; font-size:18px; text-align:center; padding:10px}
+    .card-title{margin:10px 0 4px; font-weight:800; font-size:18px}
+    .meta{color:var(--muted); font-size:13px}
+
+    h2{font-size:28px; margin:26px 0 10px}
+    section + section{margin-top:26px}
+
+    .list{display:grid; grid-template-columns:repeat(1,minmax(0,1fr)); gap:10px}
+    @media(min-width:700px){.list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(min-width:1000px){.list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .chip{background:#1d1d21; border:1px solid #2a2a30; padding:10px 12px; border-radius:12px}
+
+    .info{display:grid; gap:14px}
+    .info .row{display:flex; gap:12px; align-items:center}
+    .info strong{min-width:160px}
+
+    footer{margin-top:40px; border-top:1px dashed #2a2a30}
+    .foot{display:flex; gap:16px; flex-wrap:wrap; align-items:center; padding:18px 0; color:var(--muted)}
+    .qr{width:88px; height:88px; border-radius:12px; background:#fff; display:grid; place-items:center; color:#000; font-weight:800}
+
+    /* Diagnostics panel */
+    #tests{position:fixed; right:16px; bottom:16px; background:#121214; border:1px solid #2a2a30; border-radius:14px; padding:12px; width:320px; max-height:60vh; overflow:auto; box-shadow:0 10px 30px rgba(0,0,0,.35); font-size:14px}
+    #tests h3{margin:0 0 8px; font-size:16px}
+    .ok{color:#7bd88f}
+    .warn{color:#ffd166}
+    .fail{color:#ff6b6b}
+    #runTests{position:fixed; right:16px; bottom:16px; transform:translateY(-70px);}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="wordmark" aria-label="CakeNGo">
+          <span class="cake">Cake</span><span class="n">N</span><span class="go">Go</span>
+        </div>
+      </div>
+      <div class="tag">NYC • Cake in a Can</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="pill">Fresh • Sealed • Ready to Go</span>
+        <h1>Sweetness That Travels</h1>
+        <p>Small-batch cakes packed in clear, sealed cans for easy transport and longer freshness. Delivery across <strong>all 5 NYC boroughs</strong>. Typical shelf life: <strong>8–12 weeks</strong> sealed and stored cool.</p>
+        <div class="cta-row">
+          <a class="btn" href="tel:+16463090671">📞 Call to Order • (646) 309‑0671</a>
+          <a class="btn btn--ghost" href="#wholesale">Wholesale & Delivery Info</a>
+        </div>
+      </div>
+      <div class="can-card">
+        <div class="thumb" aria-label="Cake in a Can preview">Your sticker art here</div>
+        <div class="meta">Swap this placeholder with your actual sticker image in /assets.</div>
+      </div>
+    </section>
+
+    <section id="current">
+      <h2>Current Flavors</h2>
+      <div class="grid flavors">
+        <article class="can-card">
+          <div class="thumb">Strawberry Short Cake</div>
+          <div class="card-title">Strawberry Short Cake</div>
+          <div class="meta">Fan favorite • Fruity & creamy</div>
+        </article>
+        <article class="can-card">
+          <div class="thumb">Carrot Cake</div>
+          <div class="card-title">Carrot Cake</div>
+          <div class="meta">Spiced carrot layers • Cream cheese</div>
+        </article>
+        <article class="can-card">
+          <div class="thumb">Triple Chocolate Mousse</div>
+          <div class="card-title">Triple Chocolate Mousse</div>
+          <div class="meta">Dark • Milk • White chocolate</div>
+        </article>
+        <article class="can-card">
+          <div class="thumb">Oreo Cake</div>
+          <div class="card-title">Oreo Cake</div>
+          <div class="meta">Cookies & cream</div>
+        </article>
+        <article class="can-card">
+          <div class="thumb">Tres Leches</div>
+          <div class="card-title">Tres Leches</div>
+          <div class="meta">Soaked sponge • Whipped top</div>
+        </article>
+        <article class="can-card">
+          <div class="thumb">Red Velvet</div>
+          <div class="card-title">Red Velvet</div>
+          <div class="meta">Cocoa • Cream cheese icing</div>
+        </article>
+        <article class="can-card">
+          <div class="thumb">Tiramisu Cake</div>
+          <div class="card-title">Tiramisu Cake</div>
+          <div class="meta">Coffee-soaked • Mascarpone</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="upcoming">
+      <h2>Upcoming Flavors</h2>
+      <div class="list">
+        <div class="chip">Strawberry Cheesecake</div>
+        <div class="chip">Blue Velvet Cake</div>
+        <div class="chip">Caramel Layer Cake</div>
+        <div class="chip">Caramel Pecan Cake</div>
+        <div class="chip">Almond Raspberry Cake</div>
+        <div class="chip">Oreo Layer Cake</div>
+        <div class="chip">Black &amp; White Mousse</div>
+        <div class="chip">Lemon Coconut Cake</div>
+        <div class="chip">Chocolate Layer Cake</div>
+        <div class="chip">Dulce de Leche Cheesecake</div>
+        <div class="chip">Ferrero Cake</div>
+        <div class="chip">White Chocolate Ferrero Cake</div>
+        <div class="chip">Pumpkin Cheesecake</div>
+        <div class="chip">7 Layer Cake</div>
+        <div class="chip">Raspberry Layer Cake</div>
+        <div class="chip">Black Forest Cake</div>
+        <div class="chip">Chocolate Fudge</div>
+        <div class="chip">Chocolate Mousse</div>
+        <div class="chip">Berry Napoleon</div>
+        <div class="chip">Plain Cheesecake</div>
+        <div class="chip">Plain Napoleon</div>
+        <div class="chip">Oreo Cheesecake</div>
+        <div class="chip">Red Velvet Cheesecake</div>
+      </div>
+      <p class="meta" style="margin-top:10px">Note: We purposely exclude puddings, fruit tarts, brownies, pies, cake pops, eclairs, cupcakes, Berry Tart, Custard Napoleon, and Cannoli from our current roadmap.</p>
+    </section>
+
+    <section id="wholesale">
+      <h2>Ordering, Delivery & Wholesale</h2>
+      <div class="can-card">
+        <div class="info">
+          <div class="row"><strong>How to order</strong><span>Call <a href="tel:+16463090671">(646) 309‑0671</a>. We’ll confirm availability and get your order packed.</span></div>
+          <div class="row"><strong>Turnaround</strong><span>Typical prep window <strong>1–2 days</strong>. Rush? Ask and we’ll try.</span></div>
+          <div class="row"><strong>Price</strong><span>Retail from <strong>$6.49</strong> per can. Taxes may apply.</span></div>
+          <div class="row"><strong>Delivery area</strong><span>All 5 NYC boroughs (Manhattan, Brooklyn, Queens, Bronx, Staten Island).</span></div>
+          <div class="row"><strong>Wholesale</strong><span>For deli & retail partners, <a href="tel:+16463090671">call us</a> for volume pricing and regular restocks.</span></div>
+          <div class="row"><strong>Storage</strong><span>Best kept cool and dry. Sealed shelf life about <strong>8–12 weeks</strong>.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="foot container">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div class="wordmark">
+            <span class="cake">Cake</span><span class="n">N</span><span class="go">Go</span>
+          </div>
+        </div>
+        <span>© <span id="y"></span> CakeNGo. All rights reserved.</span>
+        <span class="tag">Made in NYC</span>
+        <span class="qr" aria-label="QR placeholder">QR</span>
+        <span class="meta">Add your real QR to Instagram/TikTok or a Linktree later.</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Simple diagnostics & test cases. Click the floating button to run. -->
+  <button id="runTests" class="btn">Run Diagnostics</button>
+  <div id="tests" style="display:none"></div>
+
+  <script>
+    // Basic site init
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // === Test harness ===
+    const tests = [];
+
+    function addTest(name, fn){ tests.push({name, fn}); }
+
+    // Test 1: Required sections exist
+    addTest('Sections present (current, upcoming, wholesale)', () => {
+      const ok = !!document.querySelector('#current') && !!document.querySelector('#upcoming') && !!document.querySelector('#wholesale');
+      return ok ? {pass:true} : {pass:false, msg:'One or more sections missing.'};
+    });
+
+    // Test 2: Brand wordmark fonts are assigned correctly
+    addTest('Wordmark fonts: Cake/Go=Cherry Bomb One, N=Nickainley', () => {
+      const cake = getComputedStyle(document.querySelector('.wordmark .cake')).fontFamily || '';
+      const n = getComputedStyle(document.querySelector('.wordmark .n')).fontFamily || '';
+      const go = getComputedStyle(document.querySelector('.wordmark .go')).fontFamily || '';
+      const cakeOk = /Cherry Bomb One/i.test(cake);
+      const goOk = /Cherry Bomb One/i.test(go);
+      const nOk = /Nickainley/i.test(n);
+      return (cakeOk && goOk && nOk) ? {pass:true} : {pass:false, msg:`Computed fonts → Cake: ${cake} | N: ${n} | Go: ${go}`};
+    });
+
+    // Test 3: No MetaMask/web3 connection attempts
+    addTest('No MetaMask/Web3 calls in code', () => {
+      const src = document.documentElement.innerHTML;
+      // Build tokens dynamically to avoid false positives from this test itself
+      const tok1 = 'window' + '.' + 'ethereum';
+      const tok2 = 'ethereum' + '.request(';
+      const tok3 = 'new ' + 'Web3(';
+      const has = src.includes(tok1) || src.includes(tok2) || src.includes(tok3);
+      return !has ? {pass:true} : {pass:false, msg:'Found ethereum/web3 calls in source.'};
+    });
+
+    // Test 4: Phone link exists
+    addTest('Phone link available', () => {
+      const link = document.querySelector('a[href^="tel:"]');
+      return link ? {pass:true} : {pass:false, msg:'Missing tel: link.'};
+    });
+
+    function run(){
+      const out = document.getElementById('tests');
+      out.style.display = 'block';
+      out.innerHTML = '<h3>Diagnostics</h3><div class="meta">These tests verify the page structure and ensure there are no MetaMask/Web3 hooks that could cause sandbox errors.</div>';
+      tests.forEach(t => {
+        try {
+          const r = t.fn();
+          const line = document.createElement('div');
+          line.innerHTML = r.pass ? `✅ <span class="ok">${t.name}</span>` : `❌ <span class="fail">${t.name}</span> <span class="meta">${r.msg||''}</span>`;
+          out.appendChild(line);
+        } catch(e){
+          const line = document.createElement('div');
+          line.innerHTML = `⚠️ <span class="warn">${t.name}</span> <span class="meta">${e.message}</span>`;
+          out.appendChild(line);
+        }
+      });
+
+      // Helpful warning if environment injects MetaMask
+      const hasProvider = typeof window !== 'undefined' && typeof window.ethereum !== 'undefined';
+      const warn = document.createElement('div');
+      warn.style.marginTop = '8px';
+      warn.innerHTML = hasProvider
+        ? 'ℹ️ <span class="meta">A Web3 provider (MetaMask) is detected in this browser. This site does not connect to it. If you saw "Failed to connect to MetaMask", it likely came from a browser extension or a previous script in your environment.</span>'
+        : '✅ <span class="ok">No Web3 provider detected. Good to go.</span>';
+      document.getElementById('tests').appendChild(warn);
+    }
+
+    document.getElementById('runTests').addEventListener('click', run);
+  </script>
+</body>
+</html>
