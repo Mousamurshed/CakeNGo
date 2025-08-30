@@ -26,7 +26,11 @@
       --container:1100px;
     }
     *{box-sizing:border-box}
+<<<<<<< HEAD
     html,body{margin:0; padding:0; background:var(--bg); color:#fff; font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; -webkit-font-smoothing:antialiased; min-height:200vh;}
+=======
+    html,body{margin:0; padding:0; background:var(--bg); color:#fff; font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; -webkit-font-smoothing:antialiased;}
+>>>>>>> 4b15527 (update)
     a{color:inherit; text-decoration:none}
 
     .container{max-width:var(--container); margin:0 auto; padding-inline:clamp(16px, 3vw, 24px);}  
@@ -82,6 +86,16 @@
     .qr{width:120px; height:120px; border-radius:12px; overflow:hidden;}
     .qr img{width:100%; height:100%; display:block; object-fit:contain}
 
+<<<<<<< HEAD
+=======
+    #tests{position:fixed; right:16px; bottom:16px; background:#121214; border:1px solid #2a2a30; border-radius:14px; padding:12px; width:min(88vw, 320px); max-height:60vh; overflow:auto; box-shadow:0 10px 30px rgba(0,0,0,.35); font-size:14px}
+    #tests h3{margin:0 0 8px; font-size:16px}
+    .ok{color:#7bd88f}
+    .warn{color:#ffd166}
+    .fail{color:#ff6b6b}
+    #runTests{position:fixed; right:16px; bottom:16px; transform:translateY(-70px);}
+
+>>>>>>> 4b15527 (update)
     /* Map styles */
     .map-box{border-radius:14px; overflow:hidden; background:#2a2a2f; height:360px;}
     #store-map{width:100%; height:100%;}
@@ -227,6 +241,7 @@
       </div>
     </section>
 
+<<<<<<< HEAD
     <!-- FAQ -->
     <section id="faq">
       <h2>Frequently Asked Questions</h2>
@@ -240,6 +255,8 @@
       </div>
     </section>
 
+=======
+>>>>>>> 4b15527 (update)
     <!-- Footer -->
     <footer>
       <div class="foot container">
@@ -261,8 +278,49 @@
     </footer>
   </main>
 
+<<<<<<< HEAD
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+=======
+  <button id="runTests" class="btn">Run Diagnostics</button>
+  <div id="tests" style="display:none"></div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('store-map', {
+      scrollWheelZoom: true,
+      touchZoom: true,
+      dragging: true,
+      zoomControl: true
+    }).setView([40.7831, -73.9712], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    L.control.scale({ metric: false }).addTo(map);
+
+    const locations = [
+      { name: 'CakeNGo — 3770 Broadway', addr: '3770 Broadway, New York, NY', coords: [40.8330, -73.9448] },
+      { name: 'CakeNGo — 3778 Broadway', addr: '3778 Broadway, New York, NY', coords: [40.8334, -73.9452] }
+    ];
+
+    const group = L.featureGroup();
+    locations.forEach((loc) => {
+      const marker = L.marker(loc.coords).addTo(map);
+      marker.bindPopup(`<strong>${loc.name}</strong><br>${loc.addr}<br><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.addr)}" target="_blank" rel="noopener">Directions</a>`);
+      marker.bindTooltip(loc.addr, {permanent: true, direction: 'top', offset: [0, -8]});
+      group.addLayer(marker);
+    });
+
+    map.fitBounds(group.getBounds().pad(0.2));
+>>>>>>> 4b15527 (update)
   </script>
 
   <!-- Leaflet JS -->
