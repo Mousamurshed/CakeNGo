@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CakeNGo • Sweetness That Travels</title>
-  <meta name="description" content="CakeNGo — Cake in a Can. Fresh cakes, sealed for freshness. Delivery across all 5 NYC boroughs. Shelf life 8–12 weeks." />
+  <meta name="description" content="CakeNGo — Cake in a Can. Fresh cakes, sealed for freshness. Delivery across all 5 NYC boroughs. Shelf life 1–3 weeks." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
       --container:1100px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0; padding:0; background:var(--bg); color:#fff; font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; -webkit-font-smoothing:antialiased;}
+    html,body{margin:0; padding:0; background:var(--bg); color:#fff; font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; -webkit-font-smoothing:antialiased; min-height:200vh;}
     a{color:inherit; text-decoration:none}
 
     .container{max-width:var(--container); margin:0 auto; padding-inline:clamp(16px, 3vw, 24px);}  
@@ -79,14 +79,8 @@
 
     footer{margin-top:40px; border-top:1px dashed #2a2a30}
     .foot{display:flex; gap:16px; flex-wrap:wrap; align-items:center; padding:18px 0; color:var(--muted)}
-    .qr{width:88px; height:88px; border-radius:12px; background:#fff; display:grid; place-items:center; color:#000; font-weight:800}
-
-    #tests{position:fixed; right:16px; bottom:16px; background:#121214; border:1px solid #2a2a30; border-radius:14px; padding:12px; width:min(88vw, 320px); max-height:60vh; overflow:auto; box-shadow:0 10px 30px rgba(0,0,0,.35); font-size:14px}
-    #tests h3{margin:0 0 8px; font-size:16px}
-    .ok{color:#7bd88f}
-    .warn{color:#ffd166}
-    .fail{color:#ff6b6b}
-    #runTests{position:fixed; right:16px; bottom:16px; transform:translateY(-70px);}
+    .qr{width:120px; height:120px; border-radius:12px; overflow:hidden;}
+    .qr img{width:100%; height:100%; display:block; object-fit:contain}
 
     /* Map styles */
     .map-box{border-radius:14px; overflow:hidden; background:#2a2a2f; height:360px;}
@@ -116,7 +110,7 @@
       <div>
         <span class="pill">Fresh • Sealed • Ready to Go</span>
         <h1>Sweetness That Travels</h1>
-        <p>Small-batch cakes packed in clear, sealed cans for easy transport and longer freshness. Delivery across <strong>all 5 NYC boroughs</strong>. Typical shelf life: <strong>8–12 weeks</strong> sealed and stored cool.</p>
+        <p>Small-batch cakes packed in clear, sealed cans for easy transport and longer freshness. Delivery across <strong>all 5 NYC boroughs</strong>. Typical shelf life: <strong>1–3 weeks</strong> sealed and stored cool.</p>
         <div class="cta-row">
           <a class="btn" href="tel:+16463090671">📞 Call to Order • (646) 309‑0671</a>
           <a class="btn btn--ghost" href="#wholesale">Wholesale & Delivery Info</a>
@@ -225,11 +219,23 @@
       <div class="can-card">
         <div class="info">
           <div class="row"><strong>How to order</strong><span>Call <a href="tel:+16463090671">(646) 309‑0671</a>. We’ll confirm availability and get your order packed.</span></div>
-          <div class="row"><strong>Turnaround</strong><span>Typical prep window <strong>1–2 days</strong>. Rush? Ask and we’ll try.</span></div>
-          <div class="row"><strong>Price</strong><span>Retail from <strong>$6.49</strong> per can. Taxes may apply.</span></div>
+          <div class="row"><strong>Turnaround</strong><span>Typical prep window <strong>2–3 days</strong>. Rush? Ask and we’ll try.</span></div>
           <div class="row"><strong>Delivery area</strong><span>All 5 NYC boroughs (Manhattan, Brooklyn, Queens, Bronx, Staten Island).</span></div>
           <div class="row"><strong>Wholesale</strong><span>For deli & retail partners, <a href="tel:+16463090671">call us</a> for volume pricing and regular restocks.</span></div>
-          <div class="row"><strong>Storage</strong><span>Best kept cool and dry. Sealed shelf life about <strong>8–12 weeks</strong>.</span></div>
+          <div class="row"><strong>Storage</strong><span>Best kept cool and dry. Sealed shelf life about <strong>1–3 weeks</strong>.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="can-card">
+        <div class="info">
+          <div class="row"><strong>Are the cans recyclable?</strong><span>Yes, all cans are 100% recyclable. Please rinse and recycle after use.</span></div>
+          <div class="row"><strong>Do you offer custom flavors?</strong><span>We occasionally create custom batches for special events. Call us to discuss.</span></div>
+          <div class="row"><strong>How should I serve CakeNGo?</strong><span>Open the can, use a spoon, and enjoy! Each can is sealed with freshness in mind.</span></div>
+          <div class="row"><strong>Do you cater?</strong><span>Yes, we provide catering orders for birthdays, weddings, and corporate events.</span></div>
         </div>
       </div>
     </section>
@@ -245,51 +251,19 @@
         </div>
         <span>© <span id="y"></span> CakeNGo. All rights reserved.</span>
         <span class="tag">Made in NYC</span>
-        <span class="qr" aria-label="QR placeholder">QR</span>
-        <span class="meta">Add your real QR to Instagram/TikTok or a Linktree later.</span>
+        <span class="qr" aria-label="CakeNGo Instagram QR">
+          <a href="https://instagram.com/cakengonyc" target="_blank">
+            <img src="./IMG/cakengonyc_qr.png" alt="Follow CakeNGoNYC on Instagram">
+          </a>
+        </span>
+        <span class="meta">Scan to follow us on Instagram!</span>
       </div>
     </footer>
   </main>
-
-  <button id="runTests" class="btn">Run Diagnostics</button>
-  <div id="tests" style="display:none"></div>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 
   <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script>
-    const map = L.map('store-map', {
-      scrollWheelZoom: true,
-      touchZoom: true,
-      dragging: true,
-      zoomControl: true
-    }).setView([40.7831, -73.9712], 12);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap'
-    }).addTo(map);
-
-    L.control.scale({ metric: false }).addTo(map);
-
-    const locations = [
-      { name: 'CakeNGo — 3770 Broadway', addr: '3770 Broadway, New York, NY', coords: [40.8330, -73.9448] },
-      { name: 'CakeNGo — 3778 Broadway', addr: '3778 Broadway, New York, NY', coords: [40.8334, -73.9452] }
-    ];
-
-    const group = L.featureGroup();
-    locations.forEach((loc) => {
-      const marker = L.marker(loc.coords).addTo(map);
-      marker.bindPopup(`<strong>${loc.name}</strong><br>${loc.addr}<br><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.addr)}" target="_blank" rel="noopener">Directions</a>`);
-      marker.bindTooltip(loc.addr, {permanent: true, direction: 'top', offset: [0, -8]});
-      group.addLayer(marker);
-    });
-
-    map.fitBounds(group.getBounds().pad(0.2));
-  </script>
-</body>
-</html>
-
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></
