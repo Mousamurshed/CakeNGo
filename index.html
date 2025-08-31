@@ -26,7 +26,7 @@
       --container:1100px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0; padding:0; background:var(--bg); color:#fff; font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; -webkit-font-smoothing:antialiased; min-height:400vh;}
+    html,body{margin:0; padding:0; background:var(--bg); color:#fff; font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; -webkit-font-smoothing:antialiased; min-height:200vh;}
     a{color:inherit; text-decoration:none}
 
     .container{max-width:var(--container); margin:0 auto; padding-inline:clamp(16px, 3vw, 24px);}  
@@ -52,15 +52,9 @@
     .can-card{background:var(--card); border:1px solid #232327; border-radius:var(--radius); padding:16px; height:100%}
     .grid{display:grid; gap:16px}
     .grid.flavors{grid-template-columns:repeat(1,minmax(0,1fr))}
-    
     /* 2 columns starting at iPhone width */
-    @media(min-width:375px){
-      .grid.flavors{grid-template-columns:repeat(2,minmax(0,1fr))}
-    }
-    
-    @media(min-width:900px){
-      .grid.flavors{grid-template-columns:repeat(4,minmax(0,1fr))}
-    }
+    @media(min-width:375px){ .grid.flavors{grid-template-columns:repeat(2,minmax(0,1fr))} }
+    @media(min-width:900px){ .grid.flavors{grid-template-columns:repeat(4,minmax(0,1fr))} }
 
     .thumb{border-radius:14px; background:#2a2a2f; overflow:hidden}
     .thumb img{width:100%; height:auto; display:block}
@@ -80,9 +74,7 @@
     .info .row{display:flex; gap:12px; align-items:center; color:#fff}
     .info strong{min-width:140px; color:#fff}
 
-    @media(min-width:900px){
-      .hero{grid-template-columns:1.15fr .85fr; gap:24px}
-    }
+    @media(min-width:900px){ .hero{grid-template-columns:1.15fr .85fr; gap:24px} }
 
     footer{margin-top:40px; border-top:1px dashed #2a2a30; background:#0f0f0f}
     .foot{display:flex; gap:16px; flex-wrap:wrap; align-items:center; padding:18px 0; color:#9aa0a6}
@@ -103,6 +95,17 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <a class="logo" href="#" aria-label="CakeNGo home">
+          <img src="./IMG/Cakengo logo.png" alt="CakeNGo logo">
+        </a>
+      </div>
+      <div class="tag">NYC • Cake in a Can</div>
+    </div>
+  </header>
+
   <main class="container">
     <!-- Hero -->
     <section class="hero">
@@ -120,13 +123,8 @@
           <div id="store-map"></div>
         </div>
         <div class="meta" style="margin-top:10px">
-          Find us at: <br>
-          <strong>3770 Broadway, New York, NY 10032</strong><br>
-          <strong>3778 Broadway, New York, NY 10032</strong><br>
-          <strong>327 1st Ave, New York, NY 10003</strong><br>
-          <strong>60 Henry St, Brooklyn, NY 11201</strong><br>
-          <strong>329 10th Ave, New York, NY 10001</strong><br>
-          <strong>1739 Amsterdam Ave, New York, NY 10031</strong>
+          <strong>Find us at these partner stores:</strong>
+          <div id="store-list" class="store-list"></div>
         </div>
       </div>
     </section>
@@ -136,51 +134,37 @@
       <h2>Current Flavors</h2>
       <div class="grid flavors">
         <article class="can-card">
-          <div class="thumb">
-            <img src="./IMG/1.png" alt="Strawberry Short Cake" loading="lazy" width="600" height="800" />
-          </div>
+          <div class="thumb"><img src="./IMG/1.png" alt="Strawberry Short Cake" loading="lazy" width="600" height="800" /></div>
           <div class="card-title">Strawberry Short Cake</div>
           <div class="meta">Fan favorite • Fruity & creamy</div>
         </article>
         <article class="can-card">
-          <div class="thumb">
-            <img src="./IMG/2.png" alt="Carrot Cake" loading="lazy" width="600" height="800" />
-          </div>
+          <div class="thumb"><img src="./IMG/2.png" alt="Carrot Cake" loading="lazy" width="600" height="800" /></div>
           <div class="card-title">Carrot Cake</div>
           <div class="meta">Spiced carrot layers • Cream cheese</div>
         </article>
         <article class="can-card">
-          <div class="thumb">
-            <img src="./IMG/3.png" alt="Triple Chocolate Mousse" loading="lazy" width="600" height="800" />
-          </div>
+          <div class="thumb"><img src="./IMG/3.png" alt="Triple Chocolate Mousse" loading="lazy" width="600" height="800" /></div>
           <div class="card-title">Triple Chocolate Mousse</div>
           <div class="meta">Dark • Milk • White chocolate</div>
         </article>
         <article class="can-card">
-          <div class="thumb">
-            <img src="./IMG/4.png" alt="Oreo Cake" loading="lazy" width="600" height="800" />
-          </div>
+          <div class="thumb"><img src="./IMG/4.png" alt="Oreo Cake" loading="lazy" width="600" height="800" /></div>
           <div class="card-title">Oreo Cake</div>
           <div class="meta">Cookies & cream</div>
         </article>
         <article class="can-card">
-          <div class="thumb">
-            <img src="./IMG/5.png" alt="Tres Leches" loading="lazy" width="600" height="800" />
-          </div>
+          <div class="thumb"><img src="./IMG/5.png" alt="Tres Leches" loading="lazy" width="600" height="800" /></div>
           <div class="card-title">Tres Leches</div>
           <div class="meta">Soaked sponge • Whipped top</div>
         </article>
         <article class="can-card">
-          <div class="thumb">
-            <img src="./IMG/6.png" alt="Red Velvet" loading="lazy" width="600" height="800" />
-          </div>
+          <div class="thumb"><img src="./IMG/6.png" alt="Red Velvet" loading="lazy" width="600" height="800" /></div>
           <div class="card-title">Red Velvet</div>
           <div class="meta">Cocoa • Cream cheese icing</div>
         </article>
         <article class="can-card">
-          <div class="thumb">
-            <img src="./IMG/7.png" alt="Tiramisu Cake" loading="lazy" width="600" height="800" />
-          </div>
+          <div class="thumb"><img src="./IMG/7.png" alt="Tiramisu Cake" loading="lazy" width="600" height="800" /></div>
           <div class="card-title">Tiramisu Cake</div>
           <div class="meta">Coffee-soaked • Mascarpone</div>
         </article>
@@ -244,70 +228,63 @@
         </div>
       </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="foot container">
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <div class="wordmark">
-            <span class="cake">Cake</span><span class="n">N</span><span class="go">Go</span>
-          </div>
-        </div>
-        <span>© <span id="y"></span> CakeNGo. All rights reserved.</span>
-        <span class="tag">Made in NYC</span>
-        <span class="qr" aria-label="CakeNGo Instagram QR">
-          <a href="https://instagram.com/cakengonyc" target="_blank">
-            <img src="./IMG/cakengonyc_qr.png" alt="Follow CakeNGoNYC on Instagram">
-          </a>
-        </span>
-        <span class="meta">Scan to follow us on Instagram!</span>
-      </div>
-    </footer>
   </main>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <footer>
+    <div class="foot container">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="wordmark"><span class="cake">Cake</span><span class="n">N</span><span class="go">Go</span></div>
+      </div>
+      <span>© <span id="y"></span> CakeNGo. All rights reserved.</span>
+      <span class="tag">Made in NYC</span>
+      <span class="qr" aria-label="CakeNGo Instagram QR">
+        <a href="https://instagram.com/cakengonyc" target="_blank"><img src="./IMG/cakengonyc_qr.png" alt="Follow CakeNGoNYC on Instagram"></a>
+      </span>
+      <span class="meta">Scan to follow us on Instagram!</span>
+    </div>
+  </footer>
 
-  <!-- Leaflet JS -->
+  <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    // Initialize the map
-    const map = L.map('store-map', {
-      scrollWheelZoom: true,
-      touchZoom: true,
-      dragging: true,
-      zoomControl: true
-    }).setView([40.76, -73.98], 12);
+    // Year in footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Init map
+    const map = L.map('store-map', { scrollWheelZoom: true, touchZoom: true, dragging: true, zoomControl: true }).setView([40.7831, -73.9712], 12);
 
     // Base tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap'
-    }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(map);
 
-    // Store locations
+    // Store locations (names + addresses)
     const locations = [
-    { name: 'A.L Broadway Grocery', addr: '3770 Broadway, New York, NY 10032', coords: [40.8330, -73.9448] },
-    { name: 'Galaxy Gourmet Deli',  addr: '3778 Broadway, New York, NY 10032', coords: [40.8334, -73.9452] },
-    { name: 'Fantasy Deli',         addr: '327 1st Ave, New York, NY 10003',   coords: [40.7342, -73.9806] },
-    { name: 'Prestige Market',      addr: '60 Henry St, Brooklyn, NY 11201',   coords: [40.6995, -73.9932] },
-    { name: 'Prestige Marketplace', addr: '329 10th Ave, New York, NY 10001',  coords: [40.7526, -74.0011] },
-    { name: '1739 Amsterdam Ave (Name TBD)', addr: '1739 Amsterdam Ave, New York, NY 10031', coords: [40.8271, -73.9491] }
-  ];
+      { name: 'A.L Broadway Grocery',  addr: '3770 Broadway, New York, NY 10032',  coords: [40.8330, -73.9448] },
+      { name: 'Galaxy Gourmet Deli',   addr: '3778 Broadway, New York, NY 10032',  coords: [40.8334, -73.9452] },
+      { name: 'Fantasy Deli',          addr: '327 1st Ave, New York, NY 10003',    coords: [40.7342, -73.9806] },
+      { name: 'Prestige Market',       addr: '60 Henry St, Brooklyn, NY 11201',    coords: [40.6995, -73.9932] },
+      { name: 'Prestige Marketplace',  addr: '329 10th Ave, New York, NY 10001',   coords: [40.7526, -74.0011] },
+      { name: '1739 Amsterdam Ave (Name TBD)', addr: '1739 Amsterdam Ave, New York, NY 10031', coords: [40.8271, -73.9491] }
+    ];
 
-
-    // Add markers and fit bounds
+    // Add markers + popups
     const group = L.featureGroup();
     locations.forEach((loc) => {
       const marker = L.marker(loc.coords).addTo(map);
       marker.bindPopup(`<strong>${loc.name}</strong><br>${loc.addr}`);
       group.addLayer(marker);
     });
+    map.fitBounds(group.getBounds().pad(0.2));
 
-    if (locations.length) {
-      map.fitBounds(group.getBounds().pad(0.2));
+    // Render store list below the map
+    const listEl = document.getElementById('store-list');
+    if (listEl) {
+      listEl.innerHTML = locations.map(loc => `
+        <div class="store-entry">
+          <strong>${loc.name}</strong>
+          <span class="addr">${loc.addr}</span>
+        </div>
+      `).join('');
     }
   </script>
 </body>
