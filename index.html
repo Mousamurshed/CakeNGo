@@ -20,7 +20,7 @@
 
   <style>
     :root{
-      --bg:#0f0f10; --card:#17171a; --muted:#9aa0a6; --accent:#ff3b5c; --cream:#fff3f6;
+      --bg:#000; --card:#17171a; --muted:#9aa0a6; --accent:#ff3b5c; --cream:#fff3f6;
       --radius:20px;
       --space-1:8px; --space-2:12px; --space-3:16px; --space-4:20px; --space-5:28px; --space-6:40px;
       --container:1100px;
@@ -31,22 +31,22 @@
 
     .container{max-width:var(--container); margin:0 auto; padding-inline:clamp(16px, 3vw, 24px);}  
 
-    header{position:sticky; top:0; backdrop-filter:saturate(140%) blur(8px); background:rgba(15,15,16,.8); border-bottom:1px solid #232327; z-index:10}
+    header{position:sticky; top:0; backdrop-filter:saturate(140%) blur(8px); background:#0f0f0f; border-bottom:1px solid #232327; z-index:10}
     .nav{display:flex; align-items:center; gap:var(--space-2); padding-block:14px}
     .brand{display:flex; align-items:center; gap:10px}
     .logo{height:56px; display:flex; align-items:center}
     .logo img{height:56px; width:auto; display:block; object-fit:contain; border-radius:12px; box-shadow:0 8px 24px rgba(255,59,92,.35)}
-    .tag{color:var(--muted); margin-left:auto; font-size:clamp(12px, 2.5vw, 14px)}
+    .tag{color:#ccc; margin-left:auto; font-size:clamp(12px, 2.5vw, 14px)}
 
     main{padding-block:var(--space-5)}
     .hero{display:grid; grid-template-columns:1fr; gap:var(--space-3); align-items:stretch}
-    .hero h1{font-family:"Cherry Bomb One", cursive; font-size:clamp(34px, 8vw, 56px); line-height:1.02; margin:0 0 10px}
-    .hero p{color:#d7d9dd; font-size:clamp(15px, 2.8vw, 18px); margin:0 0 16px}
-    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(255,59,92,.15); color:#ffd9e1; font-weight:700; font-size:13px}
+    .hero h1{font-family:"Cherry Bomb One", cursive; font-size:clamp(34px, 8vw, 56px); line-height:1.02; margin:0 0 10px; color:#fff}
+    .hero p{color:#aaa; font-size:clamp(15px, 2.8vw, 18px); margin:0 0 16px}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(255,59,92,.15); color:#ff3b5c; font-weight:700; font-size:13px}
 
     .cta-row{display:flex; gap:12px; flex-wrap:wrap}
-    .btn{background:#fff; color:#000; padding:12px 16px; border-radius:14px; font-weight:800; display:inline-flex; align-items:center; gap:10px; justify-content:center; width:100%}
-    .btn--ghost{background:#232327; color:#fff}
+    .btn{background:#ff3b5c; color:#fff; padding:12px 16px; border-radius:14px; font-weight:800; display:inline-flex; align-items:center; gap:10px; justify-content:center; width:100%}
+    .btn--ghost{background:#232327; color:#fff; border:2px solid #ff3b5c}
     @media(min-width:480px){ .btn{ width:auto } }
 
     .can-card{background:var(--card); border:1px solid #232327; border-radius:var(--radius); padding:16px; height:100%}
@@ -58,27 +58,27 @@
     .thumb{border-radius:14px; background:#2a2a2f; overflow:hidden}
     .thumb img{width:100%; height:auto; display:block}
 
-    .card-title{margin:10px 0 4px; font-weight:800; font-size:18px}
-    .meta{color:var(--muted); font-size:13px}
+    .card-title{margin:10px 0 4px; font-weight:800; font-size:18px; color:#fff}
+    .meta{color:#9aa0a6; font-size:13px}
 
-    h2{font-size:clamp(22px, 4.5vw, 28px); margin:26px 0 10px}
+    h2{font-size:clamp(22px, 4.5vw, 28px); margin:26px 0 10px; color:#fff}
     section + section{margin-top:26px}
 
     .list{display:grid; grid-template-columns:repeat(1,minmax(0,1fr)); gap:10px}
     @media(min-width:700px){.list{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(min-width:1000px){.list{grid-template-columns:repeat(3,minmax(0,1fr))}}
-    .chip{background:#1d1d21; border:1px solid #2a2a30; padding:10px 12px; border-radius:12px}
+    .chip{background:#1d1d21; border:1px solid #2a2a30; padding:10px 12px; border-radius:12px; color:#fff}
 
     .info{display:grid; gap:14px}
-    .info .row{display:flex; gap:12px; align-items:center}
-    .info strong{min-width:140px}
+    .info .row{display:flex; gap:12px; align-items:center; color:#fff}
+    .info strong{min-width:140px; color:#fff}
 
     @media(min-width:900px){
       .hero{grid-template-columns:1.15fr .85fr; gap:24px}
     }
 
-    footer{margin-top:40px; border-top:1px dashed #2a2a30}
-    .foot{display:flex; gap:16px; flex-wrap:wrap; align-items:center; padding:18px 0; color:var(--muted)}
+    footer{margin-top:40px; border-top:1px dashed #2a2a30; background:#0f0f0f}
+    .foot{display:flex; gap:16px; flex-wrap:wrap; align-items:center; padding:18px 0; color:#9aa0a6}
     .qr{width:120px; height:120px; border-radius:12px; overflow:hidden;}
     .qr img{width:100%; height:100%; display:block; object-fit:contain}
 
@@ -92,7 +92,6 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
-  <!-- SINGLE HEADER ONLY -->
   <header>
     <div class="container nav">
       <div class="brand">
@@ -112,7 +111,7 @@
         <h1>Sweetness That Travels</h1>
         <p>Small-batch cakes packed in clear, sealed cans for easy transport and longer freshness. Delivery across <strong>all 5 NYC boroughs</strong>. Typical shelf life: <strong>1–3 weeks</strong> sealed and stored cool.</p>
         <div class="cta-row">
-          <a class="btn" href="tel:+16463090671">📞 Call to Order • (646) 309‑0671</a>
+          <a class="btn" href="tel:+16463090671">📞 Call to Order • (646) 309-0671</a>
           <a class="btn btn--ghost" href="#wholesale">Wholesale & Delivery Info</a>
         </div>
       </div>
@@ -224,7 +223,7 @@
       <h2>Ordering, Delivery & Wholesale</h2>
       <div class="can-card">
         <div class="info">
-          <div class="row"><strong>How to order</strong><span>Call <a href="tel:+16463090671">(646) 309‑0671</a>. We’ll confirm availability and get your order packed.</span></div>
+          <div class="row"><strong>How to order</strong><span>Call <a href="tel:+16463090671">(646) 309-0671</a>. We’ll confirm availability and get your order packed.</span></div>
           <div class="row"><strong>Turnaround</strong><span>Typical prep window <strong>2–3 days</strong>. Rush? Ask and we’ll try.</span></div>
           <div class="row"><strong>Delivery area</strong><span>All 5 NYC boroughs (Manhattan, Brooklyn, Queens, Bronx, Staten Island).</span></div>
           <div class="row"><strong>Wholesale</strong><span>For deli & retail partners, <a href="tel:+16463090671">call us</a> for volume pricing and regular restocks.</span></div>
@@ -259,4 +258,56 @@
         <span class="tag">Made in NYC</span>
         <span class="qr" aria-label="CakeNGo Instagram QR">
           <a href="https://instagram.com/cakengonyc" target="_blank">
-            <img src="./IMG/cakengonyc_qr.png" alt="Follow CakeNGoNYC on
+            <img src="./IMG/cakengonyc_qr.png" alt="Follow CakeNGoNYC on Instagram">
+          </a>
+        </span>
+        <span class="meta">Scan to follow us on Instagram!</span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map
+    const map = L.map('store-map', {
+      scrollWheelZoom: true,
+      touchZoom: true,
+      dragging: true,
+      zoomControl: true
+    }).setView([40.76, -73.98], 12);
+
+    // Base tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Store locations
+    const locations = [
+      { name: 'CakeNGo — 3770 Broadway', addr: '3770 Broadway, New York, NY 10032', coords: [40.8330, -73.9448] },
+      { name: 'CakeNGo — 3778 Broadway', addr: '3778 Broadway, New York, NY 10032', coords: [40.8334, -73.9452] },
+      { name: 'CakeNGo — 327 1st Ave', addr: '327 1st Ave, New York, NY 10003', coords: [40.7342, -73.9806] },
+      { name: 'CakeNGo — 60 Henry St', addr: '60 Henry St, Brooklyn, NY 11201', coords: [40.6995, -73.9932] },
+      { name: 'CakeNGo — 329 10th Ave', addr: '329 10th Ave, New York, NY 10001', coords: [40.7526, -74.0011] },
+      { name: 'CakeNGo — 1739 Amsterdam Ave', addr: '1739 Amsterdam Ave, New York, NY 10031', coords: [40.8271, -73.9491] }
+    ];
+
+    // Add markers and fit bounds
+    const group = L.featureGroup();
+    locations.forEach((loc) => {
+      const marker = L.marker(loc.coords).addTo(map);
+      marker.bindPopup(`<strong>${loc.name}</strong><br>${loc.addr}`);
+      group.addLayer(marker);
+    });
+
+    if (locations.length) {
+      map.fitBounds(group.getBounds().pad(0.2));
+    }
+  </script>
+</body>
+</html>
