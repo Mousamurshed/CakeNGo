@@ -52,8 +52,15 @@
     .can-card{background:var(--card); border:1px solid #232327; border-radius:var(--radius); padding:16px; height:100%}
     .grid{display:grid; gap:16px}
     .grid.flavors{grid-template-columns:repeat(1,minmax(0,1fr))}
-    @media(min-width:640px){.grid.flavors{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(min-width:900px){.grid.flavors{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    
+    /* 2 columns starting at iPhone width */
+    @media(min-width:375px){
+      .grid.flavors{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    
+    @media(min-width:900px){
+      .grid.flavors{grid-template-columns:repeat(4,minmax(0,1fr))}
+    }
 
     .thumb{border-radius:14px; background:#2a2a2f; overflow:hidden}
     .thumb img{width:100%; height:auto; display:block}
@@ -85,6 +92,10 @@
     /* Map styles */
     .map-box{border-radius:14px; overflow:hidden; background:#2a2a2f; height:360px;}
     #store-map{width:100%; height:100%;}
+    .store-list{margin-top:8px; display:grid; gap:8px}
+    .store-entry{background:#111; border:1px solid #232327; border-radius:10px; padding:8px 10px}
+    .store-entry strong{color:#fff}
+    .store-entry .addr{color:#9aa0a6; display:block}
 
     @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
   </style>
@@ -92,17 +103,6 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <a class="logo" href="/" aria-label="CakeNGo home">
-          <img src="./IMG/Cakengo logo.png" alt="CakeNGo logo">
-        </a>
-      </div>
-      <div class="tag">NYC • Cake in a Can</div>
-    </div>
-  </header>
-
   <main class="container">
     <!-- Hero -->
     <section class="hero">
